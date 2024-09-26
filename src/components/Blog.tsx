@@ -16,7 +16,7 @@ const Blog = () => {
         <Link href={`/`}>
           <h1
             className={`text-3xl font-semibold text-center ${oswald.className}`}>
-            Aayman&aposs Journal
+            Aayman&apos;s Journal
           </h1>
         </Link>
 

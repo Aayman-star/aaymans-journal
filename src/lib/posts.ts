@@ -28,7 +28,7 @@ export const getAllPosts = () => {
 
     /**Use gray matter to parse the front-matter of the content */
     const { data, content } = matter(fileContent);
-    console.log("Here is data : ", data);
+    // console.log("Here is data : ", data);
     const slug = data.slug ? data.slug : file.replace(/\.mdx$/, "");
     /**Function modified to place the recent date if there is no date */
     const date = data.date

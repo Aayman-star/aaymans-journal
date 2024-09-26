@@ -5,7 +5,7 @@ import Categories from "./Categories";
 import SinglePost from "./SinglePost";
 
 const BlogDisplay = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  // await new Promise((resolve) => setTimeout(resolve, 1500));
 
   const blogPosts = getAllPosts().filter((post) => post.publish);
   const sortedBlogPosts = blogPosts.sort(
