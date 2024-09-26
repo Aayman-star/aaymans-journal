@@ -2,7 +2,7 @@ import "./globals.css";
 import "highlight.js/styles/github-dark.css";
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 
