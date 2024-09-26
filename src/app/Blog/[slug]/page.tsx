@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 import { oswald, raleway } from "@/lib/fonts";
 import ThemeSwitch from "@/components/Theme-Switch";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
-import CustomLink from "@/components/CustomLink";
 
 export const generateMetadata = async ({
   params,

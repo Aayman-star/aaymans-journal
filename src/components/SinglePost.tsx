@@ -35,7 +35,7 @@ const SinglePost = ({
         <hr />
 
         <ul className="flex">
-          {category.map((cat: string, i: number) => (
+          {category.map((cat: string) => (
             <li
               key={cat}
               className="mr-2 text-[10px] font-light border px-3 py-1 rounded-full">

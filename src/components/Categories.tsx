@@ -12,8 +12,9 @@ const Categories = () => {
   ];
   return (
     <ul className="flex items-center justify-center mb-10 gap-x-4">
-      {categories.map((category, i) => (
+      {categories.map((category) => (
         <Link
+          key={category.id}
           className="transition-transform active:scale-95"
           href={`/Category/${category.label}`}>
           <li
