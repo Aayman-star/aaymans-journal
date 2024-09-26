@@ -21,7 +21,7 @@ export const getAllPosts = () => {
   /**Read all the files in the blog direcotry */
   /**This array named files only stores the names of the files,nothing else */
   const files = fs.readdirSync(blogDirectory);
-  const postsData = files.map((file, i) => {
+  const postsData = files.map((file) => {
     /**Read the file content */
     const fullPath = path.join(blogDirectory, file);
     const fileContent = fs.readFileSync(fullPath, "utf-8");
@@ -109,7 +109,7 @@ export async function getPostBySlug(slug: string) {
 
 export const getPostsbyCategory = (category: string) => {
   const postsbyCategory = getAllPosts().filter(
-    (post, i) => post.publish && post.category.includes(category)
+    (post) => post.publish && post.category.includes(category)
   );
 
   return postsbyCategory;

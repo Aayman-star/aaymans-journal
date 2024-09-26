@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { oswald } from "@/lib/fonts";
-import Categories from "./Categories";
+
 import Link from "next/link";
 
 const Blog = () => {
