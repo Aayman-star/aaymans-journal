@@ -1,0 +1,174 @@
+---
+title: "How to deploy a react app to github pages"
+description: "A step by step tutorial on deploying a react app to github pages"
+date: "2024-09-22"
+slug: "how-to-deploy-a-react-app-to-github-pages"
+category: ["Technical"]
+publish: true
+---
+
+This tutorial will guide you through deploying a React app built with Vite to GitHub Pages. We’ll cover all the necessary steps,
+including setting up your `vite.config.ts` and ensuring your deployment runs smoothly.
+
+### Prerequisites
+
+1. **Node.js and pnpm Installed**: Ensure you have Node.js installed, and use `pnpm` as your package manager.
+2. **A GitHub Account**: You need a GitHub account and a repository to host your React app.
+
+## Step 1: Create and Configure Your React App
+
+### 1. Create a New React App
+
+If you haven’t already created your React app, start by running:
+
+```bash
+pnpm create vite
+```
+
+Follow the prompts to set up your project. Choose react as the framework.
+
+### 2. Install Dependencies
+
+Navigate to your project directory and install dependencies:
+
+```
+pnpm install
+```
+
+#### 3. Set Up vite.config.ts
+
+In the root of your project, locate or create the vite.config.ts file. This file is used to configure Vite.
+
+Update your vite.config.ts to ensure the build outputs to the correct directory and paths are set for GitHub Pages:
+
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist', // Specify the output directory for the build
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
+      },
+    },
+  },
+  base: '/<repository-name>/', // Replace with your GitHub repository name
+})
+
+```
+
+There is a simpler version to this as well,which is :
+
+```
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+
+export default defineConfig({
+    /**Name of the output direcotory*/
+  build: {
+    outDir: "dist",
+  },
+  plugins: [react()],
+  /*Name of the github repo*/
+  base: "/gitbub-repo-name/",
+});
+
+```
+
+Replace <repository-name> with the actual name of your GitHub repository.
+
+### Step 2: Add the Homepage Field in package.json
+
+In your package.json file, add a homepage field. This helps ensure paths are correctly resolved in production.
+
+```
+{
+  "name": "your-app-name",
+  "version": "0.0.1",
+  "homepage": "https://<username>.github.io/<repository-name>",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
+
+```
+
+Replace <username> with your GitHub username and <repository-name> with your repository name.
+
+### Step 3: Install the gh-pages Package
+
+gh-pages is a package that simplifies deploying your app to GitHub Pages.
+
+1. Install gh-pages
+   Run the following command to add gh-pages as a dependency:
+
+```
+pnpm add gh-pages --save-dev
+```
+
+### Step 4: Update Your .gitignore
+
+Ensure your .gitignore file does not ignore the dist directory since this is where your built files will reside.
+
+Open .gitignore.
+If dist/ is present, remove or comment out the line:
+
+```
+.gitignore files use "#" to comment the lines
+#dist/
+```
+
+### Step 5: Build and Deploy Your App
+
+1. Build Your App
+   Run the following command to build your app:
+
+```
+pnpm run predeploy
+```
+
+This command compiles your app and outputs the files into the dist directory.
+
+2. Deploy to GitHub Pages
+   Once the build is successful, deploy your app using:
+
+```
+pnpm run deploy
+```
+
+This command pushes the contents of the dist directory to the gh-pages branch on GitHub, which GitHub Pages uses to serve your site.
+
+### Step 6: Access Your Deployed App
+
+1. Check the Deployment Status
+   Navigate to your GitHub repository.
+   Go to the Settings tab, then scroll down to the Pages section.
+   Ensure that the source is set to the gh-pages branch, and your site is published.
+2. Access Your Site
+   Your app will be available at:
+
+```
+https://<username>.github.io/<repository-name>/
+```
+
+Replace **username** and **repository-name** with your actual GitHub username and repository name.
+
+Step 7: Troubleshooting Common Issues
+Blank Page After Deployment:
+
+- Ensure the base option in vite.config.ts is correctly set to /<repository-name>/.
+  Verify that the dist directory is correctly populated by the build process and not ignored in .gitignore.
+  404 Errors for Assets:
+
+- This usually indicates a path issue. Make sure the homepage and base configurations are correct.
+  No dist Directory:
+
+- If the dist directory isn’t created, ensure that pnpm run build is working without errors and that the outDir is correctly set in vite.config.ts.

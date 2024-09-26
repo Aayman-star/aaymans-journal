@@ -1,0 +1,26 @@
+---
+title: "Things I learned from the recent nextjs tutorial"
+description: "A basic revision of the things I learnded from the Bytegrad nextjs tutorial"
+date: "2024-09-25"
+slug: "things-I-learned-from-the-recent-nextjs-tutorial"
+category: ["Technical"]
+publish: true
+---
+
+So recently I watched a tutorial by [ByteGrad](https://www.youtube.com/watch?v=y7JCnfbETPs) on youtube. It covers the basics of
+nextjs app creation with a simple fullstack blog app.
+For newcomers it is a good source to start with. I personally knew a lot of the stuff covered in the video but I got to practice and
+polish on the loading and suspence concept in react and nextjs.
+So Nextjs provides a `loading` file feature that runs before the page is rendered,but this runs for the entire page. This means
+that the available data is also stalled until the missing part of the information is fetched. In simple words the
+static portion of the page is also kept from being rendered until the dynamic portion is available.
+React has a concept of `Suspense`,which works on component level. This helps nextjs to create a `streaming` setup,where static
+parts of the page are rendered while the remote/dynamic parts are being fetched.
+
+Nextjs server actions were also discussed. Server actions are a new approach for backend functions. Generally in the app router
+We have to create an api folder and write the backend functions in the route.ts file. But with server actions the need for the
+api folder is eliminated. You just have to create an `actions.ts` file with the statement `use server` on top.**`use server` does not
+turn the component into a server component,it is used for server actions.**
+server actions give you the freedom of creating backend functions with different names,and provide direct communication with the
+database.You can say that **server actions** are a way to provide the client with direct communication with the database without
+passing through the api folder gateway.

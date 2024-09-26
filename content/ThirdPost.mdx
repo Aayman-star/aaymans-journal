@@ -1,0 +1,88 @@
+---
+title: "Creating a static mdx blog with Nextjs"
+description: "How to create a static mdx blog in Nextjs"
+date: "2024-09-20"
+slug: "creating-a-static-mdx-blog-with-Nextjs"
+category: ["Technical"]
+publish: true
+---
+
+### Test Heading
+
+### 1. Create a Nextjs app ,with the command of your choice.
+
+In this case we are using npm as the package manager so the command
+would look like this:
+
+```
+npx create-next-app@latest
+```
+
+### 2. Installing next-mdx and other relevant packages
+
+To handle mdx files in the Nextjs app , you have to install `@next-mdx` package along with some additional packages:
+
+```
+npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+### 3. Configuring next.config.mjs file.
+
+After installing the packages,you have to make some changes to the next.config.mjs file so that your Nextjs app can recognise
+the `mdx` file format.
+
+```
+import createMDX from '@next/mdx'
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure `pageExtensions` to include markdown and MDX files
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  // Optionally, add any other Next.js config below
+}
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig)
+```
+
+### 4. adding mdx-components.tsx file.
+
+After modifying the next.config file, you need to add the `mdx-components.tsx` file. This file is essential for the functioning
+of the mdx blog.
+
+```
+import type { MDXComponents } from 'mdx/types'
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    ...components,
+  }
+}
+```
+
+### 5. Installing gray-matter
+
+In order to process the metadata in the mdx files,you need a package called `gray-matter`.
+
+```
+npm install gray-matter
+```
+
+### 6. Installing the tailwind typography plugin.
+
+Tailwind css provides a ready made plugin to style the markdown content. It is called `typography by tailwind`. Install this plugin
+with the following command:
+
+```
+npm install -D @tailwindcss/typography
+```
+
+Also add this plugin to the tailwind.config.ts file,like this:
+
+```
+ plugins: [require("@tailwindcss/typography")],
+```
