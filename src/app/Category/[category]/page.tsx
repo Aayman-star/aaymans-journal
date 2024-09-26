@@ -6,7 +6,7 @@ import Blog from "@/components/Blog";
 const Page = async ({ params }: { params: { category: string } }) => {
   const blogPosts =
     params.category === "All"
-      ? getAllPosts().filter((post, i) => post.publish)
+      ? getAllPosts().filter((post) => post.publish)
       : getPostsbyCategory(params.category);
   //const blogPosts = getAllPosts().filter((post, i) => post.publish);
   const sortedBlogPosts = blogPosts.sort(
@@ -20,6 +20,7 @@ const Page = async ({ params }: { params: { category: string } }) => {
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
         {sortedBlogPosts?.map((post) => (
           <SinglePost
+            key={post.title}
             title={post.title}
             description={post.description}
             slug={post.slug}
