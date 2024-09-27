@@ -1,5 +1,5 @@
 "use client";
-import { oswald } from "@/lib/fonts";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { CardContent, Card } from "./ui/card";
-import { oswald, raleway } from "@/lib/fonts";
+import { raleway } from "@/lib/fonts";
 interface PostProps {
   slug: string;
   title: string;
