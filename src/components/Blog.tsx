@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { oswald } from "@/lib/fonts";
-
+import DateDisplay from "./DateDisplay";
 import Link from "next/link";
 
 const Blog = () => {
@@ -15,7 +15,7 @@ const Blog = () => {
       <div className="flex items-center justify-center gap-x-2">
         <Link href={`/`}>
           <h1
-            className={`text-3xl font-semibold text-center ${oswald.className}`}>
+            className={`text-3xl font-semibold text-center text-muted-foreground dark:text-foreground ${oswald.className}`}>
             Aayman&apos;s Journal
           </h1>
         </Link>
@@ -31,6 +31,7 @@ const Blog = () => {
           )}
         </button>
       </div>
+      <DateDisplay />
     </div>
   );
 };

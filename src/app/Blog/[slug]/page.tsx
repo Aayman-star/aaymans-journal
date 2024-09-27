@@ -25,7 +25,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   return (
     <div
       className={`w-full h-auto md:min-h-screen p-10 bg-[url('/graph-paper-light.svg')] dark:bg-[url('/graph-paper.svg')]`}>
-      <div className="w-full h-full px-2 py-8 md:max-w-4xl md:mx-auto md:px-20 flex flex-col gap-y-4">
+      <div className="w-full h-full py-8 md:max-w-4xl md:mx-auto md:px-20 flex flex-col gap-y-4">
         <div className="w-full md:max-w-4xl md:mx-auto flex items-center justify-between">
           <Link className="group" href={"/"}>
             <p className={`flex items-center md:text-lg`}>

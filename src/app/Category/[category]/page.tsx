@@ -13,7 +13,7 @@ const Page = async ({ params }: { params: { category: string } }) => {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
   return (
-    <main className="w-[80%] mx-auto min-h-screen">
+    <main className="w-[90%] md:w-[85%] mx-auto min-h-screen">
       <Blog />
       {/* <p>{params.category}</p> */}
       <Categories />
@@ -29,7 +29,7 @@ const Page = async ({ params }: { params: { category: string } }) => {
           />
         ))}
         {!sortedBlogPosts.length && (
-          <p className="text-center w-full mt-10 col-span-3 text-xl italic">
+          <p className="text-center w-full mt-10 col-span-3 text-2xl italic text-muted-foreground dark:text-foreground">
             No posts in this category
           </p>
         )}

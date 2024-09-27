@@ -19,26 +19,29 @@ const SinglePost = ({
   return (
     <Card
       key={slug}
-      className="mb-4 transition-all duration-300 ease-in-out transform hover:border-muted-foreground hover:-translate-y-1 hover:shadow-lg">
+      className="mb-4 transition-all duration-300 ease-in-out transform hover:border-muted-foreground hover:-translate-y-1 hover:shadow-lg text-muted-foreground dark:text-foreground">
       <CardContent className="py-6 rounded-md flex flex-col gap-y-4" key={slug}>
         <div>
-          <p className={`${oswald.className} text-xl font-medium`}>
+          <p className={`${raleway.className}  text-xl font-semibold`}>
             <Link href={`/Blog/${slug}`}> {title}</Link>
           </p>
           <span
-            className={`text-muted-foreground ${raleway.className} font-light text-sm`}>
+            className={`text-muted-foreground font-geistSans  text-sm md:text-base`}>
             {description}
           </span>
         </div>
 
-        <p className={`font-light text-muted-foreground`}>{date}</p>
+        <p
+          className={`font-light text-muted-foreground font-geistSans text-sm`}>
+          {date}
+        </p>
         <hr />
 
         <ul className="flex">
           {category.map((cat: string) => (
             <li
               key={cat}
-              className="mr-2 text-[10px] font-light border px-3 py-1 rounded-full">
+              className="mr-2 text-[10px] font-light border px-3 py-1 rounded-full text-muted-foreground dark:text-foreground">
               {cat}
             </li>
           ))}

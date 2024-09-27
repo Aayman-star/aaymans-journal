@@ -12,6 +12,8 @@ const config: Config = {
       fontFamily: {
         oswald: ["var(--font-oswald)"],
         raleway: ["var(--font-raleway)"],
+        geistMono: ["var(--font-geist-mono)", "monospace"],
+        geistSans: ["var(--font-geist-sans)", "sans-serif"],
       },
       typography: (theme: any) => ({
         DEFAULT: {

@@ -13,7 +13,7 @@ const BlogDisplay = async () => {
   );
 
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[90%] md:w-[85%] mx-auto">
       <Categories />
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
         {sortedBlogPosts?.map((post) => (
