@@ -1,5 +1,5 @@
 const DateDisplay = () => {
-  const date = new Date() as any;
+  const date = new Date();
   const options = {
     weekday: "long",
     year: "numeric",
