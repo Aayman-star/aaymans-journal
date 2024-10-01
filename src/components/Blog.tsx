@@ -1,17 +1,16 @@
 "use client";
-import React from "react";
-import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
-import { oswald } from "@/lib/fonts";
-import DateDisplay from "./DateDisplay";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { oswald } from "@/lib/fonts";
+import { Sun, Moon } from "lucide-react";
+import DateDisplay from "./DateDisplay";
 
 const Blog = () => {
   const { theme, setTheme } = useTheme();
   //console.log(theme);
 
   return (
-    <div className=" py-8">
+    <div className=" py-6">
       <div className="flex items-center justify-center gap-x-2">
         <Link href={`/`}>
           <h1

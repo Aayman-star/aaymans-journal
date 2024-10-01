@@ -1,7 +1,8 @@
-import { getAllPosts, getPostsbyCategory } from "@/lib/posts";
+import Blog from "@/components/Blog";
 import Categories from "@/components/Categories";
 import SinglePost from "@/components/SinglePost";
-import Blog from "@/components/Blog";
+import SearchBar from "@/components/SearchBar";
+import { getAllPosts, getPostsbyCategory } from "@/lib/posts";
 
 const Page = async ({ params }: { params: { category: string } }) => {
   const blogPosts =
@@ -16,7 +17,12 @@ const Page = async ({ params }: { params: { category: string } }) => {
     <main className="w-[90%] md:w-[85%] mx-auto min-h-screen">
       <Blog />
       {/* <p>{params.category}</p> */}
+
       <Categories />
+
+      {/* <p>{params.category}</p> */}
+
+      {/* Posts */}
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4">
         {sortedBlogPosts?.map((post) => (
           <SinglePost
@@ -29,8 +35,8 @@ const Page = async ({ params }: { params: { category: string } }) => {
           />
         ))}
         {!sortedBlogPosts.length && (
-          <p className="text-center w-full mt-10 col-span-3 text-2xl italic text-muted-foreground dark:text-foreground">
-            No posts in this category
+          <p className="text-center w-full mt-10 col-span-3 text-xl font-light text-muted-foreground">
+            No posts in this category.
           </p>
         )}
       </div>

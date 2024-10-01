@@ -52,7 +52,7 @@ export const getAllPosts = () => {
       title: data.title,
       description: data.description,
       publish: data.publish,
-      category: data.category,
+      category: data.category || [],
       date: date,
       content,
     };
@@ -113,4 +113,17 @@ export const getPostsbyCategory = (category: string) => {
   );
 
   return postsbyCategory;
+};
+
+export const getFilteredPosts = (query: string) => {
+  const filteredPosts = getAllPosts().filter(
+    (post) =>
+      post.title.toLowerCase().includes(query.toLowerCase()) ||
+      post.description.toLowerCase().includes(query.toLowerCase) ||
+      post.content.toLowerCase().includes(query.toLowerCase()) ||
+      post.category.some((category: string) =>
+        category.toLowerCase().includes(query.toLowerCase())
+      )
+  );
+  return filteredPosts;
 };
