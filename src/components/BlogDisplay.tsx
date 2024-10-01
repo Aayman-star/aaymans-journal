@@ -13,9 +13,7 @@ interface Post {
   date: string;
   content: string;
 }
-interface PostProp {
-  Posts: Post[];
-}
+
 interface SearchParams {
   query?: string;
 }

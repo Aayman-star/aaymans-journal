@@ -1,7 +1,6 @@
 import Blog from "@/components/Blog";
 import Categories from "@/components/Categories";
 import SinglePost from "@/components/SinglePost";
-import SearchBar from "@/components/SearchBar";
 import { getAllPosts, getPostsbyCategory } from "@/lib/posts";
 
 const Page = async ({ params }: { params: { category: string } }) => {

@@ -16,9 +16,7 @@ interface Post {
   date: string;
   content: string;
 }
-interface SearchProp {
-  Posts: Post[];
-}
+
 export default function SearchBar() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
