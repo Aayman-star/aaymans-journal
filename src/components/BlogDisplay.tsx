@@ -19,7 +19,7 @@ interface SearchParams {
 }
 const BlogDisplay = ({ query }: SearchParams) => {
   // console.log("IN THE BLOG DISPLAY:", query);
-  const blogPosts = query
+  const blogPosts: Post[] = query
     ? getFilteredPosts(query).filter((post) => post.publish)
     : getAllPosts().filter((post) => post.publish);
 

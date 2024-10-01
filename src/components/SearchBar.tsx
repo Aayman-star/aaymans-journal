@@ -6,17 +6,6 @@ import { Search, X } from "lucide-react";
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-interface Post {
-  file: string;
-  slug: any;
-  title: any;
-  description: any;
-  publish: any;
-  category: any;
-  date: string;
-  content: string;
-}
-
 export default function SearchBar() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
