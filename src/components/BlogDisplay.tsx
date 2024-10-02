@@ -27,7 +27,7 @@ const BlogDisplay = ({ query }: SearchParams) => {
   return (
     <div className="w-[90%] md:w-[85%] mx-auto">
       {/* <Categories /> */}
-      <div className="w-full flex flex-col-reverse gap-y-2 md:flex-row justify-center gap-x-3 md:justify-between">
+      <div className="w-full flex flex-col-reverse gap-y-3 md:flex-row justify-center gap-x-3 md:justify-between">
         <div>
           <Categories />
         </div>

@@ -25,9 +25,9 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className={`w-full h-auto md:min-h-screen p-10 `}>
       <div className="w-full h-full py-8 md:max-w-4xl md:mx-auto md:px-16 flex flex-col gap-y-4">
-        <div className="w-full md:max-w-4xl md:mx-auto flex items-center justify-between">
+        <div className="w-full md:max-w-4xl  md:mx-auto flex items-center justify-between">
           <Link className="group" href={"/"}>
-            <p className={`flex items-center md:text-lg`}>
+            <p className={`flex items-center md:text-lg text-muted-foreground`}>
               <span className="inline-block">
                 <ArrowLeft className="text-2xl transition-transform duration-200 ease-in-out transform group-hover:-translate-x-1" />
               </span>
@@ -37,7 +37,8 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
           <ThemeSwitch />
         </div>
 
-        <h1 className={`text-2xl md:text-3xl ${oswald.className}`}>
+        <h1
+          className={`text-2xl md:text-3xl text-muted-foreground dark:text-foreground ${oswald.className}`}>
           {post.metadata.title}
         </h1>
         <p className={`md:text-lg ${raleway.className} text-muted-foreground`}>
@@ -48,7 +49,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
         </span>
 
         <article
-          className={`${oswald.variable} ${raleway.className} prose dark:prose-invert prose-pre:rounded-md prose-headings:font-oswald prose-headings:text-muted-foreground prose-p:font-raleway`}>
+          className={`${oswald.variable} ${raleway.className} lg:max-w-7xl prose dark:prose-invert prose-pre:rounded-md prose-headings:font-oswald prose-headings:text-muted-foreground prose-p:font-raleway prose-code:text-muted-foreground prose-code:font-extrabold prose-strong:text-muted-foreground`}>
           <div dangerouslySetInnerHTML={{ __html: post.content1 }} />
         </article>
       </div>
