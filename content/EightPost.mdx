@@ -1,0 +1,27 @@
+---
+title: "Code snippets that I used earlier"
+description: "Storing useful code snippets that worked but got disused because of improvement."
+date: "2024-10-03"
+slug: "code-snippets-that-I-used-earlier"
+category: ["Technical"]
+publish: true
+---
+
+The code I was using to fetch all blog posts from the directory. This code is working okay,but got an upgrade with the
+addition of a **featured** category to be displayed on the main page.
+
+```
+/**blogPosts is an array of posts which is filled conditionally.
+if the query variable has a value,
+the posts are filtered based on that value,
+else all posts are fetched from the directory and then sorted with
+descending dates.**/
+
+  const blogPosts: Post[] = query
+    ? getFilteredPosts(query).filter((post) => post.publish)
+    : getAllPosts()
+        .filter((post) => post.publish)
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+```

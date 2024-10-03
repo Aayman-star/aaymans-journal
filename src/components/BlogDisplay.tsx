@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import SinglePost from "./SinglePost";
-import { getAllPosts, getFilteredPosts } from "@/lib/posts";
+import { getAllPosts, getFilteredPosts, getPostsbyCategory } from "@/lib/posts";
 
 interface Post {
   file: string;
@@ -19,10 +19,12 @@ interface SearchParams {
 }
 const BlogDisplay = ({ query }: SearchParams) => {
   // console.log("IN THE BLOG DISPLAY:", query);
+
   const blogPosts: Post[] = query
     ? getFilteredPosts(query).filter((post) => post.publish)
-    : getAllPosts().filter((post) => post.publish);
-
+    : getPostsbyCategory("Featured").sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
   //console.log(blogPosts);
   return (
     <div className="w-[90%] md:w-[85%] mx-auto">

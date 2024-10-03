@@ -49,7 +49,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
         </span>
 
         <article
-          className={`${oswald.variable} ${raleway.className} lg:max-w-7xl prose dark:prose-invert prose-pre:rounded-md prose-headings:font-oswald prose-headings:text-muted-foreground prose-p:font-raleway prose-code:text-muted-foreground prose-code:font-extrabold prose-strong:text-muted-foreground`}>
+          className={`${oswald.variable} ${raleway.className} lg:max-w-7xl prose dark:prose-invert prose-pre:rounded-md prose-headings:font-oswald prose-headings:text-muted-foreground prose-p:font-raleway prose-code:text-muted-foreground prose-code:font-extrabold prose-strong:text-muted-foreground prose-img:h-80 prose-img:mx-auto prose-img:rounded-md`}>
           <div dangerouslySetInnerHTML={{ __html: post.content1 }} />
         </article>
       </div>

@@ -23,7 +23,7 @@ const SinglePost = ({
       <CardContent className="py-6 rounded-md flex flex-col gap-y-4" key={slug}>
         <div>
           <p className={`${raleway.className}  text-xl font-semibold`}>
-            <Link href={`/Blog/${slug}`}> {title}</Link>
+            <Link href={`/blog/${slug}`}> {title}</Link>
           </p>
           <span
             className={`text-muted-foreground font-geistSans  text-sm md:text-base`}>

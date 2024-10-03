@@ -2,19 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Home } from "lucide-react";
 
 const Categories = () => {
   const pathname = usePathname();
   //console.log(pathname);
   const categories = [
-    { id: 1, label: "All", path: "/Category/All" },
-    { id: 2, label: "General", path: "/Category/General" },
-    { id: 3, label: "Technical", path: "/Category/Technical" },
-    { id: 4, label: "Reflections", path: "/Category/Reflections" },
+    { id: 1, label: <Home className="w-5 h-5" />, path: "/" },
+    { id: 2, label: "All", path: "/category/All" },
+    { id: 3, label: "General", path: "/category/General" },
+    { id: 4, label: "Technical", path: "/category/Technical" },
+    { id: 5, label: "Reflections", path: "/category/Reflections" },
   ];
   return (
     <div className="mb-6">
-      <ul className="flex  items-center justify-center  gap-x-2 gap-y-2 md:gap-x-4 md:gap-y-0">
+      <ul className="flex flex-wrap  items-center justify-center  gap-x-2 gap-y-2 md:gap-x-4 md:gap-y-0">
         {categories.map((category) => (
           <Link
             key={category.id}
