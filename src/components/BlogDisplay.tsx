@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 import SinglePost from "./SinglePost";
-import { getAllPosts, getFilteredPosts, getPostsbyCategory } from "@/lib/posts";
+import { getFilteredPosts, getPostsbyCategory } from "@/lib/posts";
 
 interface Post {
   file: string;
