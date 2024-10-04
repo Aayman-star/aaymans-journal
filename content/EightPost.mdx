@@ -10,7 +10,7 @@ publish: true
 The code I was using to fetch all blog posts from the directory. This code is working okay,but got an upgrade with the
 addition of a **featured** category to be displayed on the main page.
 
-```bash
+```
 /**blogPosts is an array of posts which is filled conditionally.
 if the query variable has a value,
 the posts are filtered based on that value,
@@ -29,7 +29,7 @@ descending dates.**/
 The following code is extracted from the category/[category]/page.tsx file,before it had the functionality to
 accomodate both categories and search filter.
 
-```bash
+```
  const blogPosts =
     category === query
       ? getFilteredPosts(query).filter((post) => post.publish)
