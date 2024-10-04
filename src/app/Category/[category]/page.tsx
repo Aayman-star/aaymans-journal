@@ -1,14 +1,27 @@
 import Blog from "@/components/Blog";
 import Categories from "@/components/Categories";
 import SinglePost from "@/components/SinglePost";
-import { getAllPosts, getPostsbyCategory } from "@/lib/posts";
+import SearchBar from "@/components/SearchBar";
+import { getAllPosts, getFilteredPosts, getPostsbyCategory } from "@/lib/posts";
 
-const Page = async ({ params }: { params: { category: string } }) => {
-  const blogPosts =
-    params.category === "All"
-      ? getAllPosts().filter((post) => post.publish)
-      : getPostsbyCategory(params.category);
-  //const blogPosts = getAllPosts().filter((post, i) => post.publish);
+interface PageProps {
+  params?: {
+    category?: string;
+  };
+  searchParams?: {
+    query?: string;
+  };
+}
+const Page = async ({ params, searchParams }: PageProps) => {
+  const category = params?.category || "";
+  const query = searchParams?.query || "";
+  /**Trying to update the function to include search as well */
+  const blogPosts = query
+    ? getFilteredPosts(query).filter((post) => post.publish)
+    : category === "All"
+    ? getAllPosts().filter((post) => post.publish)
+    : getPostsbyCategory(category);
+
   const sortedBlogPosts = blogPosts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -16,8 +29,10 @@ const Page = async ({ params }: { params: { category: string } }) => {
     <main className="w-[90%] md:w-[85%] mx-auto min-h-screen">
       <Blog />
       {/* <p>{params.category}</p> */}
-
-      <Categories />
+      <div className="w-full flex flex-col-reverse gap-y-2 md:flex-row justify-between">
+        <Categories />
+        <SearchBar />
+      </div>
 
       {/* <p>{params.category}</p> */}
 

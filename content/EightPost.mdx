@@ -25,3 +25,16 @@ descending dates.**/
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
 ```
+
+The following code is extracted from the category/[category]/page.tsx file,before it had the functionality to
+accomodate both categories and search filter.
+
+```
+ const blogPosts =
+    category === query
+      ? getFilteredPosts(query).filter((post) => post.publish)
+      : params.category === "All"
+      ? getAllPosts().filter((post) => post.publish)
+      : getPostsbyCategory(params.category);
+  const blogPosts = getAllPosts().filter((post, i) => post.publish);
+```
